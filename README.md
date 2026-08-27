@@ -1,2 +1,3 @@
-# teste
-Repositorio teste GitHub
+# Repositório de Teste
+## Disciplina Programação Front-end
+### João Pedro Carvalho Faria
