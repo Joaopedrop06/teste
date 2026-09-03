@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tutorial de HTML e Git</title>
+	<style>
+		:root { --primary:#2563eb; --dark:#172033; --light:#f5f7fb; --code:#111827; }
+		* { box-sizing:border-box; }
+		body { margin:0; font-family:Arial, sans-serif; line-height:1.6; color:#263244; background:var(--light); }
+		header { background:linear-gradient(135deg,#1d4ed8,#7c3aed); color:white; padding:3rem 1rem; text-align:center; }
+		header h1 { margin:0 0 .5rem; font-size:clamp(2rem,5vw,3.5rem); }
+		nav { background:var(--dark); padding:1rem; text-align:center; position:sticky; top:0; z-index:2; }
+		nav a { color:white; text-decoration:none; margin:0 .7rem; font-weight:bold; }
+		nav a:hover { color:#93c5fd; }
+		main { max-width:1100px; margin:auto; padding:2rem 1rem; }
+		section { background:white; margin-bottom:2rem; padding:2rem; border-radius:12px; box-shadow:0 2px 10px #0001; }
+		h2 { color:var(--primary); border-bottom:2px solid #dbeafe; padding-bottom:.5rem; }
+		h3 { color:#4338ca; margin-top:1.8rem; }
+		code, pre { font-family:Consolas, monospace; }
+		pre { background:var(--code); color:#d1fae5; padding:1rem; border-radius:8px; overflow:auto; }
+		.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+		.card { border:1px solid #dbeafe; padding:1rem; border-radius:8px; }
+		.practice { background:#eff6ff; border-left:4px solid var(--primary); padding:1rem; }
+		footer { background:var(--dark); color:white; text-align:center; padding:2rem; }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Guia prático de HTML</h1>
+		<p>Aprenda as principais tags, pratique e entenda como o Git ajuda no seu projeto.</p>
+	</header>
+	<nav aria-label="Navegação principal">
+		<a href="#base">HTML básico</a><a href="#tags">Tags essenciais</a><a href="#pratica">Práticas</a><a href="#git">Git</a><a href="#resumo">Resumão</a>
+	</nav>
+	<main>
+		<section id="base">
+			<h2>1. Estrutura e conceitos fundamentais</h2>
+			<p>HTML (HyperText Markup Language) estrutura o conteúdo de uma página. Ele usa elementos formados por uma tag de abertura, conteúdo e tag de fechamento. Algumas tags são vazias, como <code>&lt;img&gt;</code>.</p>
+			<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+	&lt;head&gt; &lt;title&gt;Minha página&lt;/title&gt; &lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Olá, mundo!&lt;/h1&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			<div class="grid">
+				<div class="card"><strong>Semântica:</strong> use tags pelo significado, como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> e <code>&lt;footer&gt;</code>.</div>
+				<div class="card"><strong>Atributos:</strong> fornecem informações extras, por exemplo <code>href</code>, <code>src</code>, <code>alt</code> e <code>class</code>.</div>
+				<div class="card"><strong>Acessibilidade:</strong> escreva textos alternativos, mantenha títulos em ordem e use labels em formulários.</div>
+			</div>
+		</section>
+
+		<section id="tags">
+			<h2>2. Principais tags HTML</h2>
+			<h3>Texto e organização</h3>
+			<pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;p&gt;Um parágrafo com &lt;strong&gt;destaque&lt;/strong&gt; e &lt;em&gt;ênfase&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;div&gt;Bloco genérico&lt;/div&gt;
+&lt;span&gt;Trecho em linha&lt;/span&gt;</code></pre>
+			<h3>Links, imagens e listas</h3>
+			<pre><code>&lt;a href="https://developer.mozilla.org/pt-BR/" target="_blank"&gt;Documentação&lt;/a&gt;
+&lt;img src="foto.jpg" alt="Descrição da foto" width="300"&gt;
+&lt;ul&gt;&lt;li&gt;Item sem ordem&lt;/li&gt;&lt;/ul&gt;
+&lt;ol&gt;&lt;li&gt;Primeiro passo&lt;/li&gt;&lt;/ol&gt;</code></pre>
+			<h3>Tabelas e formulários</h3>
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;&lt;th&gt;Produto&lt;/th&gt;&lt;th&gt;Preço&lt;/th&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;Livro&lt;/td&gt;&lt;td&gt;R$ 30&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;form&gt;
+	&lt;label for="email"&gt;E-mail:&lt;/label&gt;
+	&lt;input id="email" type="email" required&gt;
+	&lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+			<h3>Mídia e conteúdo incorporado</h3>
+			<pre><code>&lt;audio controls src="musica.mp3"&gt;&lt;/audio&gt;
+&lt;video controls width="400" src="video.mp4"&gt;&lt;/video&gt;
+&lt;iframe src="https://example.com" title="Exemplo"&gt;&lt;/iframe&gt;</code></pre>
+		</section>
+
+		<section id="pratica">
+			<h2>3. Práticas recomendadas</h2>
+			<ul><li>Use um único <code>&lt;h1&gt;</code> por página e mantenha a hierarquia de títulos.</li><li>Prefira HTML semântico e CSS para aparência.</li><li>Valide o documento, teste no celular e confira o teclado.</li><li>Indente o código e use nomes claros para classes.</li></ul>
+			<div class="practice"><strong>Desafio:</strong> crie uma página de apresentação com um cabeçalho, uma lista de habilidades, uma imagem com <code>alt</code>, um formulário de contato e um rodapé. Depois, valide o HTML e abra o arquivo no navegador.</div>
+		</section>
+
+		<section id="git">
+			<h2>4. Resumo sobre Git</h2>
+			<p>Git é um sistema de controle de versão: registra alterações, permite voltar a versões anteriores e facilita o trabalho em equipe. GitHub é uma plataforma para hospedar e colaborar em repositórios.</p>
+			<pre><code>git init                         # inicia um repositório
+git status                       # verifica alterações
+git add tutorial_html.html       # prepara o arquivo
+git commit -m "Cria tutorial HTML" # salva uma versão
+git log --oneline                # consulta o histórico
+git branch nova-funcionalidade   # cria uma branch
+git switch nova-funcionalidade   # muda de branch
+git push origin main             # envia ao remoto
+git pull origin main             # atualiza o projeto</code></pre>
+			<p><strong>Fluxo comum:</strong> editar → <code>git status</code> → <code>git add</code> → <code>git commit</code> → <code>git push</code>. Faça commits pequenos e descreva claramente cada mudança.</p>
+		</section>
+
+		<section id="resumo">
+			<h2>5. Resumão final</h2>
+			<div class="grid">
+				<div class="card"><h3>Conceitos e tags HTML</h3><p>HTML estrutura conteúdo com elementos e atributos. Use semântica, acessibilidade, títulos, links, imagens, listas, tabelas e formulários corretamente.</p></div>
+				<div class="card"><h3>Git</h3><p>Controle versões com repositórios, commits e branches. O fluxo essencial é adicionar, registrar, revisar e sincronizar alterações.</p></div>
+				<div class="card"><h3>Tudo junto</h3><p>Crie uma estrutura HTML organizada, pratique no navegador, valide e registre cada evolução com Git. Assim você desenvolve páginas melhores e mantém um histórico seguro.</p></div>
+			</div>
+		</section>
+	</main>
+	<footer><p>Estude, pratique e evolua um commit de cada vez. 🚀</p></footer>
+</body>
+</html>
