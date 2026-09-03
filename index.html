@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comandos principais do Git</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-2: #1f2937;
+        --primary: #38bdf8;
+        --secondary: #a78bfa;
+        --text: #e5e7eb;
+        --muted: #cbd5e1;
+        --success: #34d399;
+        --warning: #fbbf24;
+        --danger: #f87171;
+        --code: #0b1120;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #020817, #111827 45%, #1e293b);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+      }
+
+      h1, h2, h3 {
+        color: var(--primary);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 14px;
+      }
+
+      .intro {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 14px;
+        padding: 24px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        background: rgba(17, 24, 39, 0.85);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      }
+
+      .command {
+        display: inline-block;
+        background: var(--code);
+        color: var(--success);
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin: 10px 0;
+        font-weight: bold;
+        font-family: "Courier New", monospace;
+      }
+
+      code {
+        font-family: "Courier New", monospace;
+      }
+
+      pre {
+        background: var(--code);
+        color: #dbeafe;
+        border-radius: 10px;
+        padding: 14px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .tip {
+        border-left: 4px solid var(--warning);
+        background: rgba(251, 191, 36, 0.08);
+        padding: 12px 16px;
+        border-radius: 0 10px 10px 0;
+        margin-top: 18px;
+      }
+
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="intro">
+        <h1>Git: comandos principais e uso prático</h1>
+        <p>
+          O Git é um sistema de controle de versão usado para registrar alterações em arquivos e colaborar em projetos.
+          Abaixo estão os comandos mais importantes, com explicações e exemplos simples para usar no dia a dia.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <h2>1. git init</h2>
+          <p>Inicializa um repositório Git em uma pasta local.</p>
+          <div class="command">git init</div>
+          <p>Exemplo:</p>
+          <pre>mkdir meu-projeto
+cd meu-projeto
+git init</pre>
+          <p>Esse comando cria a pasta <code>.git</code>, que guarda o histórico do projeto.</p>
+        </section>
+
+        <section class="card">
+          <h2>2. git clone</h2>
+          <p>Baixa um repositório já existente para sua máquina.</p>
+          <div class="command">git clone &lt;url-do-repositorio&gt;</div>
+          <pre>git clone https://github.com/usuario/projeto.git</pre>
+          <p>Isso cria uma cópia local do projeto e já conecta o repositório remoto ao local.</p>
+        </section>
+
+        <section class="card">
+          <h2>3. git status</h2>
+          <p>Mostra o estado atual do repositório: arquivos alterados, novos e prontos para commit.</p>
+          <div class="command">git status</div>
+          <pre>git status</pre>
+          <p>Use sempre antes de fazer um commit para verificar o que foi modificado.</p>
+        </section>
+
+        <section class="card">
+          <h2>4. git add</h2>
+          <p>Adiciona arquivos à área de staging, preparando-os para commit.</p>
+          <div class="command">git add &lt;arquivo&gt;</div>
+          <pre>git add index.html
+git add .</pre>
+          <p><code>git add .</code> adiciona todos os arquivos alterados da pasta atual.</p>
+        </section>
+
+        <section class="card">
+          <h2>5. git commit</h2>
+          <p>Salva as alterações na história do projeto com uma mensagem.</p>
+          <div class="command">git commit -m "mensagem do commit"</div>
+          <pre>git commit -m "Adiciona página inicial do projeto"</pre>
+          <p>O commit cria um ponto de salvamento no histórico do código.</p>
+        </section>
+
+        <section class="card">
+          <h2>6. git log</h2>
+          <p>Mostra o histórico de commits do projeto.</p>
+          <div class="command">git log</div>
+          <pre>git log</pre>
+          <p>Você consegue ver quem fez a alteração, quando e qual mensagem foi usada.</p>
+        </section>
+
+        <section class="card">
+          <h2>7. git branch</h2>
+          <p>Lista ou gerencia ramificações do projeto.</p>
+          <div class="command">git branch</div>
+          <pre>git branch
+git branch nome-da-branch</pre>
+          <p>As branches permitem trabalhar em versões separadas do código sem afetar a principal.</p>
+        </section>
+
+        <section class="card">
+          <h2>8. git checkout / git switch</h2>
+          <p>Muda de uma branch para outra.</p>
+          <div class="command">git checkout nome-da-branch</div>
+          <pre>git checkout feature-login
+git switch main</pre>
+          <p><code>git switch</code> é a opção mais moderna e clara para trocar de branch.</p>
+        </section>
+
+        <section class="card">
+          <h2>9. git merge</h2>
+          <p>Une uma branch em outra, combinando as alterações.</p>
+          <div class="command">git merge nome-da-branch</div>
+          <pre>git checkout main
+git merge feature-login</pre>
+          <p>Esse comando integra o trabalho feito em outra branch na branch atual.</p>
+        </section>
+
+        <section class="card">
+          <h2>10. git pull</h2>
+          <p>Busca e incorpora as alterações mais recentes do repositório remoto.</p>
+          <div class="command">git pull origin main</div>
+          <pre>git pull origin main</pre>
+          <p>Útil para manter seu projeto sincronizado com o repositório online.</p>
+        </section>
+
+        <section class="card">
+          <h2>11. git push</h2>
+          <p>Envia seus commits para o repositório remoto.</p>
+          <div class="command">git push origin main</div>
+          <pre>git push origin main</pre>
+          <p>Depois de concluir alterações locais, use esse comando para compartilhar com o time.</p>
+        </section>
+
+        <section class="card">
+          <h2>12. git remote -v</h2>
+          <p>Mostra os repositórios remotos configurados no projeto.</p>
+          <div class="command">git remote -v</div>
+          <pre>git remote -v</pre>
+          <p>Normalmente aparece a origem do GitHub, GitLab ou Bitbucket.</p>
+        </section>
+
+        <section class="card">
+          <h2>13. git diff</h2>
+          <p>Mostra as diferenças entre versões do código.</p>
+          <div class="command">git diff</div>
+          <pre>git diff
+git diff -- index.html</pre>
+          <p>Ajuda a revisar exatamente o que foi alterado antes de fazer um commit.</p>
+        </section>
+
+        <section class="card">
+          <h2>14. git restore</h2>
+          <p>Descarta alterações locais em arquivos para voltar ao último estado salvo.</p>
+          <div class="command">git restore arquivo.txt</div>
+          <pre>git restore index.html</pre>
+          <p>Útil quando você quer reverter uma edição sem precisar apagar manualmente o arquivo.</p>
+        </section>
+
+        <section class="card">
+          <h2>15. git reset</h2>
+          <p>Remove commits ou desfaz mudanças do staging/estado do projeto.</p>
+          <div class="command">git reset --hard HEAD~1</div>
+          <pre>git reset --soft HEAD~1
+git reset --hard HEAD~1</pre>
+          <p>Esse comando deve ser usado com cuidado, porque pode apagar alterações importantes.</p>
+        </section>
+      </main>
+
+      <div class="tip">
+        <strong>Dica prática:</strong> um fluxo básico de trabalho no Git costuma ser:
+        <ul>
+          <li><code>git status</code> para verificar o estado;</li>
+          <li><code>git add .</code> para preparar arquivos;</li>
+          <li><code>git commit -m "..."</code> para salvar alterações;</li>
+          <li><code>git pull</code> antes de enviar alterações para evitar conflitos;</li>
+          <li><code>git push</code> para subir o código.</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        Git é essencial para organizar projetos, colaborar em equipe e manter um histórico confiável do código.
+      </div>
+    </div>
+  </body>
+</html>
